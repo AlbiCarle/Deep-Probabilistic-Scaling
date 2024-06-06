@@ -7,7 +7,7 @@ Deep Probabilistic Scaling is an uncertainty quantification tool for the control
 Deep Probabilistic Scaling is a direct application of [Scalable Classification](https://paperswithcode.com/paper/probabilistic-safety-regions-via-finite) to convolutional neural networks for (binary) classification
 
 <div style="text-align:center;">
-    <img src="binary_CNN.png" width="200">
+    <img src="binary_CNN.png" width="1000">
 </div>
 
 
