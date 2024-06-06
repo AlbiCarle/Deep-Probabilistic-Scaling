@@ -63,12 +63,14 @@ def EvaluateScalingModel(model, rho_star,p_ts, X_test, Y_test, showCM = True):
             y_pred_ts_eps.append(1)
 
     plt.figure(figsize=(12, 8))
+    
+    if showCM:
 
-    cm_svm = confusion_matrix(Y_test, y_pred_ts_eps)
-    cmSVM = ConfusionMatrixDisplay(confusion_matrix=cm_svm)
-    cmSVM.plot()
-    cmSVM.ax_.set_title("{}".format("Scalable CNN"))
-    plt.tight_layout()
+        cm_svm = confusion_matrix(Y_test, y_pred_ts_eps)
+        cmSVM = ConfusionMatrixDisplay(confusion_matrix=cm_svm)
+        cmSVM.plot()
+        cmSVM.ax_.set_title("{}".format("Scalable CNN"))
+        plt.tight_layout()
 
     TN, FP, FN, TP = confusion_matrix(Y_test, y_pred_ts_eps).ravel()
 
@@ -88,4 +90,41 @@ def EvaluateScalingModel(model, rho_star,p_ts, X_test, Y_test, showCM = True):
     print("TP = {}, FP = {}, TN = {}, FN = {}".format(TP,FP,TN,FN))
 
     return p_ts_star, y_pred_ts_eps, accuracy,f1,PPV,NPV,TPR,TNR,FPR,FNR
+
+
+# link with conformal prediction 
+
+def scorefunction(model, x, y):
+    rho_x = 1/2 - model.predict(x).squeeze()
+    
+    return y * rho_x + (1-y) * (-rho_x)
+
+def getConformalSet(s_Xcal,s_Xts0,s_Xts1,epsilon, n_c):
+    
+    # compute the quantile
+    qhat = np.quantile(s_Xcal, np.ceil((n_c+1)*(1-epsilon))/n_c)
+    
+   
+    '''
+    cf_set = - np.ones((len(Y_test),2))
+
+    cf_set[:, 0] = np.where(s_Xts0 <= qhat, 0, -1)
+    cf_set[:, 1] = np.where(s_Xts1 <= qhat, 1, -1)
+    
+    '''
+    
+    # list of lists where each inner list can be one of the following: [0], [1],[],[0,1]
+    cf_set = []
+    
+    for s0,s1 in list(zip(s_Xts0,s_Xts1)):
+        singlerowpreds=[]
+        if s0 <= qhat:
+            singlerowpreds.append(0)
+        if s1 <= qhat:
+            singlerowpreds.append(1)
+
+        cf_set.append(singlerowpreds)
+    
+    
+    return cf_set
 
