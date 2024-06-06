@@ -45,6 +45,60 @@ def CNN_Model(image_shape):
     
     return model
 
+def CNN_Model_Imbalanced(image_shape, output_bias = None):
+    
+    if output_bias is not None:
+        output_bias = tf.keras.initializers.Constant(output_bias)
+    
+    model = Sequential([
+
+    Conv2D(32, (3, 3), activation='relu', input_shape=image_shape),
+    BatchNormalization(),
+    MaxPooling2D(pool_size=(2, 2)),
+    Dropout(0.25),
+
+    Conv2D(64, (3, 3), activation='relu'),
+    BatchNormalization(),
+    MaxPooling2D(pool_size=(2, 2)),
+    Dropout(0.25),
+
+    Conv2D(128, (3, 3), activation='relu'),
+    BatchNormalization(),
+    MaxPooling2D(pool_size=(2, 2)),
+    Dropout(0.25),
+
+    Flatten(),
+    Dense(512, activation='relu'),
+    BatchNormalization(),
+    Dropout(0.5),
+    Dense(1, activation='sigmoid',bias_initializer=output_bias), 
+    ])
+    
+    return model
+
+def CNN_Model2(image_shape):
+    # removed last layer wrt previous model
+    model = Sequential([
+
+    Conv2D(32, (3, 3), activation='relu', input_shape=image_shape),
+    BatchNormalization(),
+    MaxPooling2D(pool_size=(2, 2)),
+    Dropout(0.25),
+
+    Conv2D(64, (3, 3), activation='relu'),
+    BatchNormalization(),
+    MaxPooling2D(pool_size=(2, 2)),
+    Dropout(0.25),
+    
+    Flatten(),
+    Dense(128, activation='relu'),
+    BatchNormalization(),
+    Dropout(0.5),
+    Dense(1, activation='sigmoid'), 
+    ])
+    
+    return model
+
 def EvaluateModel(model, X_test, Y_test, showCM = True):
     
     p_ts = model.predict(X_test)-0.5
