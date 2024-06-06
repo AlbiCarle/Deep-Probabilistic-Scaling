@@ -1,3 +1,3 @@
 # Deep-Probabilistic-Scaling
 
-![Example Image](38intro.pdf)
+![Example Image](38intro.png)
