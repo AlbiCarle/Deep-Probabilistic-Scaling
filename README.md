@@ -10,12 +10,16 @@ Deep Probabilistic Scaling is a direct application of [Scalable Classification](
     <img src="binary_CNN.png" width="600">
 </div>
 
-that is the predictor function of the network such that
+that is the predictor function of the network $\hat \varphi$ such that
 
 <div style="text-align:center;">
-    <img src="scalable_class.png" width="400">
+    <img src="scalable_class.png" width="300">
 </div>
 
-This framework allows to define a special region $\mathcal{S}_\varepsilon$ such that the probability of observing an event tha
+This framework allows to define a special region $\mathcal{S}_\varepsilon$ such that the probability of observing a false negative is bounded by $\varepsilon$:
+
+<div style="text-align:center;">
+    <img src="scalable_class.png" width="300">
+</div>
 
 
