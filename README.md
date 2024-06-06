@@ -10,4 +10,6 @@ Deep Probabilistic Scaling is a direct application of [Scalable Classification](
     <img src="binary_CNN.png" width="600">
 </div>
 
+This framework allows to define a special region $\mathcal{S}_\varepsilon$
+
 
