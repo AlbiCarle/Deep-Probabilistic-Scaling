@@ -19,7 +19,7 @@ that is the predictor function of the network $\hat \varphi$ such that
 This framework allows to define a special region $\mathcal{S}_\varepsilon$ such that the probability of observing a false negative is bounded by $\varepsilon$:
 
 <div style="text-align:center;">
-    <img src="safety_bound.png" width="300">
+    <img src="safety_bound.png" width="250">
 </div>
 
 
