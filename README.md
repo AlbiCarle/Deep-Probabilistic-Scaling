@@ -31,3 +31,5 @@ This repository contains experiments to validate DPS algorithm. Specifically in 
 DPS was implemented for a research paper presented to [COPA2024](https://www.copa-conference.com/) on the basis of the concept paper 
 
 Carlevaro, Alberto, et al. "Probabilistic Safety Regions Via Finite Families of Scalable Classifiers." arXiv preprint arXiv:2309.04627 (2023).
+
+The full paper will be available in the proceedings of the conference.
