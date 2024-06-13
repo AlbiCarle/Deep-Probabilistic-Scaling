@@ -24,7 +24,7 @@ This framework allows to define a special region $\mathcal{S}_\varepsilon$ such 
 
 ## Content of the Repository
 
-This repository contains experiments to validate DPS algorithm. Specifically in the notebook "DeepSC_ProbScaling.ipynb" you can find the main code to implement DPS on several benchmark data (contained in the "data" folder) and with different convolutional models (contained in the "model" folder).
+This repository contains experiments associated to the DPS algorithm. Specifically, in the notebook ``DeepSC_ProbScaling.ipynb`` you can find the main code to implement DPS on several benchmark data (available in the ``data`` folder). The trained convolutional models (3-layer CNNs) adopted are also shared in the  ``model``.
 
 ## References
 
