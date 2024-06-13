@@ -24,7 +24,22 @@ This framework allows to define a special region $\mathcal{S}_\varepsilon$ such 
 
 ## Content of the Repository
 
-This repository contains experiments associated to the DPS algorithm. Specifically, in the notebook ``DeepSC_ProbScaling.ipynb`` you can find the main code to implement DPS on several benchmark data (available in the ``data`` folder). The trained convolutional models (3-layer CNNs) adopted are also shared in the  ``model``.
+This repository contains the code for the experiments to validate the DPS algorithm. 
+
+We considered 6 benchmarks datasets, on which we defined a binary classification problem, as shown below:
+<img width="322" alt="Schermata 2024-06-13 alle 10 31 43" src="https://github.com/AlbiCarle/Deep-Probabilistic-Scaling/assets/77918497/e346188d-058b-440f-9b47-e6d1cc6d1992">
+
+As an example, MNIST data are also available in the ``data`` folder in the ``.npy`` format.
+
+The following notebooks are available:
+
+- ``get_pneumoniaMNIST_data.ipynb`` shows how to download and save data for pnemoniaMNIST by using [medmnist](https://pypi.org/project/medmnist/) python library
+
+- ``DeepSC_NNtraining.ipynb``: contains the training of the convolutional models (3-layer CNNs) used for DPS. The models are also shared in the  ``models`` folder
+  
+- ``DeepSC_ProbScaling.ipynb``:  main code to implement DPS
+  
+- ``EvaluationMetricsPlot.ipynb``: computes the evaluation metrics and plots the results for all the considered datasets.
 
 ## References
 
